@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Tela</string>
+    <string-array name="activity_criar_per1_Raca">
+        <item>Anão</item>
+        <item>Anão da Colina</item>
+        <item>Anão da Montanha</item>
+        <item>Elfo</item>
+        <item>Alto Elfo</item>
+        <item>Elfo da Floresta</item>
+        <item>Elfo Negro (Drow)</item>
+        <item>Meio-Elfo</item>
+        <item>Halfling</item>
+        <item>Halfling dos Pés Leves</item>
+        <item>Halfling Robusto</item>
+        <item>Humano</item>
+        <item>Draconato</item>
+        <item>Gnomo</item>
+        <item>Gnomo da Floresta</item>
+        <item>Gnomo das Rochas</item>
+        <item>Meio-Orc</item>
+        <item>Tieflings</item>
+
+    </string-array>
+</resources>
