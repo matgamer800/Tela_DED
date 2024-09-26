@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import android.widget.TextView
 
 class Perfil_Persona : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +32,9 @@ class Perfil_Persona : AppCompatActivity() {
         val habil = Habilidade(forca,destrezas,constituicao,inteligencia,sabedoria,carisma)
 
         val Player = Player(Nome,habil,raca,Barbaro())
+
+        val teste = findViewById<TextView>(R.id.id_nome_personagem)
+        teste.setText(Nome)
 
 
 

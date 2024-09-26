@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Tela</string>
+    <string name="perfil_de_personagem">Perfil de Personagem</string>
     <string-array name="activity_criar_per1_Raca">
         <item>Anão</item>
         <item>Anão da Colina</item>
