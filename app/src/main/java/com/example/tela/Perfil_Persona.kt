@@ -29,7 +29,7 @@ class Perfil_Persona : AppCompatActivity() {
 
         val Player = Player(Nome,habil,raca,Barbaro())
 
-        Player.exibirplayer()
+
 
     }
 }
