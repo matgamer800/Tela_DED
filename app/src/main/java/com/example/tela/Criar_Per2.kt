@@ -10,6 +10,9 @@ import android.widget.Button
 import android.widget.EditText
 import Lib.Player.Player
 import Lib.Player.Habilidade
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.TextView
 
 
 class Criar_Per2 : AppCompatActivity() {
@@ -93,7 +96,48 @@ class Criar_Per2 : AppCompatActivity() {
             removeAtributo(carisma)
         }
 
+        val up = findViewById<TextView>(R.id.id_pontos)
 
+        fun addTextWatcher(editText: EditText) {
+            val maxPoints = 27
+            editText.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    // Soma o valor atual de todos os EditTexts
+                    val totalPoints = (forca.text.toString().toIntOrNull() ?: 0) +
+                            (destreza.text.toString().toIntOrNull() ?: 0) +
+                            (constitui.text.toString().toIntOrNull() ?: 0) +
+                            (inteligencia.text.toString().toIntOrNull() ?: 0) +
+                            (sabed.text.toString().toIntOrNull() ?: 0) +
+                            (carisma.text.toString().toIntOrNull() ?: 0)
+
+
+
+                    // Se a soma total dos pontos ultrapassar o limite, impede nova edição
+                    if (totalPoints > maxPoints) {
+                        editText.error = "Limite de 27 pontos atingido"
+                        editText.setText(s?.substring(0, before)) // Reverte a alteração feita
+                        editText.setSelection(before) // Posiciona o cursor no lugar correto
+                    }
+                    else{
+                        var T = 27 - totalPoints
+                        up.setText(T.toString())
+                    }
+                }
+
+                override fun afterTextChanged(s: Editable?) {
+                }
+            })
+        }
+
+        addTextWatcher(forca)
+        addTextWatcher(destreza)
+        addTextWatcher(constitui)
+        addTextWatcher(inteligencia)
+        addTextWatcher(sabed)
+        addTextWatcher(carisma)
 
 
 
@@ -104,6 +148,7 @@ class Criar_Per2 : AppCompatActivity() {
         limitnumber(sabed)
         limitnumber(carisma)
 
+        val volta = findViewById<Button>(R.id.id_voltar)
 
         Finalizar.setOnClickListener{
             val forcaN  = convertnumber(forca)
@@ -125,6 +170,10 @@ class Criar_Per2 : AppCompatActivity() {
             intent.putExtra("nome",Nome)
 
 
+            startActivity(intent)
+        }
+        volta.setOnClickListener{
+            val intent = Intent(this,Criar_Per1::class.java)
             startActivity(intent)
         }
 
@@ -178,5 +227,7 @@ class Criar_Per2 : AppCompatActivity() {
             editText.setText(numberValue.toString())
         }
     }
+
+
 
 }

@@ -5,6 +5,9 @@ import Lib.Player.Habilidade
 import Lib.Player.Player
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
 
 class Perfil_Persona : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,4 +35,5 @@ class Perfil_Persona : AppCompatActivity() {
 
 
     }
+
 }
