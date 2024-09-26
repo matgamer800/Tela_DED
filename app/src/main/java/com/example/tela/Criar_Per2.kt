@@ -1,5 +1,6 @@
 package com.example.tela
 
+import Lib.Classes.Barbaro
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,9 @@ import android.text.InputFilter
 import android.text.InputType
 import android.widget.Button
 import android.widget.EditText
+import Lib.Player.Player
+import Lib.Player.Habilidade
+
 
 class Criar_Per2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -110,11 +114,23 @@ class Criar_Per2 : AppCompatActivity() {
             val carismaN = convertnumber(carisma)
 
             val intent = Intent(this,Perfil_Persona::class.java)
+
+            intent.putExtra("forca",forcaN)
+            intent.putExtra("destreza",destrezaN)
+            intent.putExtra("constituicao",constituiN)
+            intent.putExtra("inteligencia",inteligenciaN)
+            intent.putExtra("sabedoria",sabedN)
+            intent.putExtra("carisma",carismaN)
+            intent.putExtra("raca",Raca)
+            intent.putExtra("nome",Nome)
+
+
             startActivity(intent)
         }
 
     }
 
+    /*Funções*/
 
     fun limitnumber(buton:EditText){
 

@@ -22,15 +22,16 @@ class Criar_Per1 : AppCompatActivity() {
 
         val spiner = findViewById<Spinner>(R.id.spinner_raca)
 
-        val Nome = findViewById<EditText>(R.id.id_NomePer).text.toString()
+        val Nome = findViewById<EditText>(R.id.id_NomePer)
 
 
         butoNext.setOnClickListener{
             //val selectedPosition = spiner.selectedItemPosition
             val intet = Intent(this,Criar_Per2::class.java)
             val raca = spiner.selectedItem.toString()
+            val nomes = Nome.text.toString()
 
-            intet.putExtra("NomePer",Nome)
+            intet.putExtra("NomePer",nomes)
             intet.putExtra("RacaPer",raca)
 
             startActivity(intet)

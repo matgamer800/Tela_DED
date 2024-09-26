@@ -22,3 +22,4 @@ rootProject.name = "Tela"
 include(":app")
 
 
+include(":mylibrary")
