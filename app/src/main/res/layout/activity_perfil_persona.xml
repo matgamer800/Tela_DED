@@ -1,101 +1,375 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Perfil_Persona">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Perfil_Persona">
 
   <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="410dp"
-          android:layout_height="0dp"
-          android:id="@+id/Titulo" app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-          android:layout_marginTop="1dp" app:layout_constraintBottom_toTopOf="@+id/Nome_Raca_Classe">
+      android:id="@+id/Titulo"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginTop="1dp"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toTopOf="@+id/Nome_Raca"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
     <TextView
-            android:text="@string/perfil_de_personagem"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" android:id="@+id/textView13" android:textAlignment="center"
-            android:textStyle="bold|italic" android:textSize="34sp" tools:ignore="TextSizeCheck"/>
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/perfil_de_personagem"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold|italic"
+        tools:ignore="TextSizeCheck" />
   </LinearLayout>
+
   <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="410dp"
-          android:layout_height="0dp"
-          android:id="@+id/Nome_Raca_Classe" app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/Titulo"
-          app:layout_constraintBottom_toTopOf="@+id/Vida">
+      android:id="@+id/Nome_Raca"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginBottom="1dp"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toTopOf="@+id/Classe"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/Titulo">
+
     <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="39dp">
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:orientation="horizontal">
+
       <TextView
-              android:text="Nome:"
-              android:layout_width="70dp"
-              android:layout_height="wrap_content" android:id="@+id/Nome_personagem" android:layout_weight="1"
-              android:textAlignment="center"/>
+          android:id="@+id/Nome_personagem"
+          android:layout_width="50dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Nome:"
+          android:textAlignment="center"
+          android:textSize="24sp" />
+
       <TextView
-              android:text="Nome do Personagem"
-              android:layout_width="70dp"
-              android:layout_height="wrap_content" android:id="@+id/id_nome_personagem" android:layout_weight="1"/>
+          android:id="@+id/id_nome_personagem"
+          android:layout_width="70dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Nome do Personagem"
+          android:textAllCaps="false"
+          android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+      <TextView
+          android:id="@+id/Titulo_Raca"
+          android:layout_width="50dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Raca :"
+          android:textAlignment="center"
+          android:textSize="24sp" />
+
+      <TextView
+          android:id="@+id/id_raca_personagem"
+          android:layout_width="70dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Raca Personagem"
+          android:textSize="18sp" />
+    </LinearLayout>
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/Classe"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginBottom="2dp"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toTopOf="@+id/Vida"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/Nome_Raca">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+      <TextView
+          android:id="@+id/Titulo_Classe"
+          android:layout_width="50dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Classe"
+          android:textAlignment="center"
+          android:textSize="24sp" />
+
+      <TextView
+          android:id="@+id/id_classe_personagem"
+          android:layout_width="70dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="Classe Personagem"
+          android:textSize="18sp" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="37dp" />
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/Vida"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toTopOf="@+id/Titulo_Habilidades"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/Classe">
+
+    <TextView
+        android:id="@+id/Titulo_Vida"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:fontFamily="serif"
+        android:text="VIDA"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/id_vida_personagem"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Vida Personagem"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:textStyle="italic" />
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/Titulo_Habilidades"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginBottom="172dp"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toTopOf="@+id/Sabedoria_Carisma"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/Vida">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:text="Habilidades"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/Forca_Destreza"
+      android:layout_width="0dp"
+      android:layout_height="87dp"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toTopOf="@+id/Constituiçcao_Inteligencia"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+      <TextView
+          android:id="@+id/Titulo_H_Forca"
+          android:layout_width="60dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="Força :"
+          android:textAlignment="textEnd"
+          android:textSize="24sp" />
+
+      <TextView
+          android:id="@+id/id_forca_personagem"
+          android:layout_width="70dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="0"
+          android:textAlignment="center"
+          android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <TextView
+          android:id="@+id/Titulo_H_Destrza"
+          android:layout_width="60dp"
+          android:layout_height="46dp"
+          android:layout_weight="1"
+          android:text="Destreza :"
+          android:textAlignment="textEnd"
+          android:textSize="24sp" />
+
+      <TextView
+          android:id="@+id/id_destreza_personagem"
+          android:layout_width="70dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="0"
+          android:textAlignment="center"
+          android:textSize="24sp" />
+
     </LinearLayout>
   </LinearLayout>
+
   <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="410dp"
-          android:layout_height="0dp"
-          android:id="@+id/Vida" app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/Nome_Raca_Classe"
-          android:layout_marginBottom="1dp" app:layout_constraintBottom_toTopOf="@+id/Titulo_Habilidade">
+      android:id="@+id/Constituiçcao_Inteligencia"
+      android:layout_width="0dp"
+      android:layout_height="81dp"
+      android:layout_marginTop="176dp"
+      android:layout_marginBottom="176dp"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/Titulo_Habilidades">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+      <TextView
+          android:id="@+id/Titulo_H_Contituicao"
+          android:layout_width="60dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="Contituição :"
+          android:textAlignment="textEnd"
+          android:textSize="24sp" />
+
+      <TextView
+          android:id="@+id/id_contituicao_personagem"
+          android:layout_width="70dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="0"
+          android:textAlignment="center"
+          android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+      <TextView
+          android:id="@+id/Titulo_H_Inteligencia"
+          android:layout_width="60dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="Inteligência :"
+          android:textAlignment="textEnd"
+          android:textSize="24sp" />
+
+      <TextView
+          android:id="@+id/id_inteligencia_personagem"
+          android:layout_width="70dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="0"
+          android:textAlignment="center"
+          android:textSize="24sp" />
+    </LinearLayout>
   </LinearLayout>
+
   <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="411dp"
-          android:layout_height="0dp"
-          android:id="@+id/Titulo_Habilidade" app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/Vida"
-          android:layout_marginBottom="1dp" app:layout_constraintBottom_toTopOf="@+id/Forca_Destreza">
+      android:id="@+id/Sabedoria_Carisma"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginBottom="5dp"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toTopOf="@+id/Proximas_Modifica"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/Titulo_Habilidades">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+      <TextView
+          android:id="@+id/Titulo_H_Sabedoria"
+          android:layout_width="60dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="Sabedoria :"
+          android:textAlignment="textEnd"
+          android:textSize="24sp" />
+
+      <TextView
+          android:id="@+id/id_sabedoria_personagem"
+          android:layout_width="70dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="0"
+          android:textAlignment="center"
+          android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+      <TextView
+          android:id="@+id/Titulo_H_Carisma"
+          android:layout_width="60dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="Carisma :"
+          android:textAlignment="textEnd"
+          android:textSize="24sp" />
+
+      <TextView
+          android:id="@+id/id_carisma_personagem"
+          android:layout_width="70dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="0"
+          android:textAlignment="center"
+          android:textSize="24sp" />
+    </LinearLayout>
   </LinearLayout>
+
   <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="410dp"
-          android:layout_height="0dp"
-          android:id="@+id/Forca_Destreza" app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/Titulo_Habilidade"
-          app:layout_constraintBottom_toTopOf="@+id/Constituicao_Inteligencia">
-  </LinearLayout>
-  <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="409dp"
-          android:layout_height="0dp"
-          android:id="@+id/Constituicao_Inteligencia" app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/Forca_Destreza"
-          app:layout_constraintBottom_toTopOf="@+id/Sabedoria_Carisma">
-  </LinearLayout>
-  <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="412dp"
-          android:layout_height="0dp"
-          android:id="@+id/Sabedoria_Carisma" app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/Constituicao_Inteligencia"
-          app:layout_constraintBottom_toTopOf="@+id/Não_sei1">
-  </LinearLayout>
-  <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="411dp"
-          android:layout_height="0dp"
-          android:id="@+id/Não_sei1" app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/Sabedoria_Carisma"
-          android:layout_marginBottom="14dp" app:layout_constraintBottom_toTopOf="@+id/não_sei2">
-  </LinearLayout>
-  <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="409dp"
-          android:layout_height="0dp"
-          android:id="@+id/não_sei2" app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/Não_sei1" android:layout_marginBottom="1dp">
-  </LinearLayout>
+      android:id="@+id/Proximas_Modifica"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginBottom="1dp"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/Sabedoria_Carisma" />
 </androidx.constraintlayout.widget.ConstraintLayout>

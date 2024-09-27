@@ -22,13 +22,26 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
             <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/id_forcas" android:layout_weight="1" android:minHeight="48dp"
-                    android:hint="0-9"/>
+                android:id="@+id/id_forcas"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="0-9"
+                android:inputType="number"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/forcaAtuali"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="8"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
             <Button
                     android:text="--"
                     android:layout_width="wrap_content"
@@ -70,13 +83,26 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
             <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/id_destreza" android:layout_weight="1" android:minHeight="48dp"
-                    android:hint="0-9"/>
+                android:id="@+id/id_destreza"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="0-9"
+                android:inputType="number"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/DestrezaAtual"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="8"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
             <Button
                     android:text="-"
                     android:layout_width="wrap_content"
@@ -109,13 +135,26 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
             <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/id_constituicao" android:layout_weight="1" android:minHeight="48dp"
-                    android:hint="0-9"/>
+                android:id="@+id/id_constituicao"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="0-9"
+                android:inputType="number"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/ContituiAtulali"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="8"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:layout_weight="1"
@@ -144,13 +183,26 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
             <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/id_inteligencia" android:layout_weight="1" android:minHeight="48dp"
-                    android:hint="0-9"/>
+                android:id="@+id/id_inteligencia"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="0-9"
+                android:inputType="number"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/InteligenAtualiza"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="8"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:id="@+id/id_inteligenciamenos"
@@ -179,13 +231,25 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
             <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/id_sabedoria" android:layout_weight="1" android:minHeight="48dp"
-                    android:hint="0-9"/>
+                android:id="@+id/id_sabedoria"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="0-9"
+                android:inputType="number"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/SabedoriaAtuali"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="8"
+                android:textAlignment="center" />
+
             <Button
                     android:text="--"
                     android:layout_width="wrap_content"
@@ -213,12 +277,26 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
             <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/id_carisma" android:layout_weight="1" android:minHeight="48dp" android:hint="0-9"/>
+                android:id="@+id/id_carisma"
+                android:layout_width="157dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="0-9"
+                android:inputType="number"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/CarismaAtuali"
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="8"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
             <Button
                     android:text="__"
                     android:layout_width="wrap_content"

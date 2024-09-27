@@ -77,6 +77,15 @@ class Player {
         return RacaDefinido
     }
 
+    fun returnHabil(): Array<Int>{
+        val array = this.HabilidadePlayer.exibir()
+        return array
+    }
+
+    fun returnVida(): Int{
+        return this.Vida
+    }
+
 
 
 }

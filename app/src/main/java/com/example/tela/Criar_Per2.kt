@@ -98,6 +98,13 @@ class Criar_Per2 : AppCompatActivity() {
 
         val up = findViewById<TextView>(R.id.id_pontos)
 
+        val forcaP = findViewById<TextView>(R.id.forcaAtuali)
+        val destrezaP = findViewById<TextView>(R.id.DestrezaAtual)
+        val constiuiP = findViewById<TextView>(R.id.ContituiAtulali)
+        val inteligenciaP =  findViewById<TextView>(R.id.InteligenAtualiza)
+        val sabedoriaP = findViewById<TextView>(R.id.SabedoriaAtuali)
+        val carismaP = findViewById<TextView>(R.id.CarismaAtuali)
+
         fun addTextWatcher(editText: EditText) {
             val maxPoints = 27
             editText.addTextChangedListener(object : TextWatcher {
@@ -124,6 +131,18 @@ class Criar_Per2 : AppCompatActivity() {
                     else{
                         var T = 27 - totalPoints
                         up.setText(T.toString())
+                        val fo = calc(forca)
+                        val des = calc(destreza)
+                        val con = calc(constitui)
+                        val inte = calc(inteligencia)
+                        val sabe = calc(sabed)
+                        val car = calc(carisma)
+                        forcaP.setText(fo.toString())
+                        destrezaP.setText(des.toString())
+                        constiuiP.setText(con.toString())
+                        inteligenciaP.setText(inte.toString())
+                        sabedoriaP.setText(sabe.toString())
+                        carismaP.setText(car.toString())
                     }
                 }
 
@@ -131,6 +150,13 @@ class Criar_Per2 : AppCompatActivity() {
                 }
             })
         }
+
+        limitnumber(forca)
+        limitnumber(inteligencia)
+        limitnumber(destreza)
+        limitnumber(constitui)
+        limitnumber(sabed)
+        limitnumber(carisma)
 
         addTextWatcher(forca)
         addTextWatcher(destreza)
@@ -141,12 +167,7 @@ class Criar_Per2 : AppCompatActivity() {
 
 
 
-        limitnumber(forca)
-        limitnumber(inteligencia)
-        limitnumber(destreza)
-        limitnumber(constitui)
-        limitnumber(sabed)
-        limitnumber(carisma)
+
 
         val volta = findViewById<Button>(R.id.id_voltar)
 
@@ -181,7 +202,7 @@ class Criar_Per2 : AppCompatActivity() {
 
     /*Funções*/
 
-    fun limitnumber(buton:EditText){
+    fun limitnumber(buton: EditText) {
 
         buton.inputType = InputType.TYPE_CLASS_NUMBER
 
@@ -190,10 +211,14 @@ class Criar_Per2 : AppCompatActivity() {
 
         buton.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
             try {
-                val input = (dest.subSequence(0,dstart).toString() + source.toString() + dest.subSequence(dend, dest.length)).toInt()
-                if (input in minvalue .. maxvalue) null else ""
-            }
-            catch (e:NumberFormatException){
+                // Combina a sequência de entrada e converte para número
+                val input = (dest.subSequence(0, dstart).toString() +
+                        source.subSequence(start, end).toString() +
+                        dest.subSequence(dend, dest.length)).toInt()
+
+                // Verifica se o número está no intervalo e não é 6 ou 8
+                if (input in minvalue..maxvalue && input != 6 && input != 8) null else ""
+            } catch (e: NumberFormatException) {
                 ""
             }
         })
@@ -213,6 +238,9 @@ class Criar_Per2 : AppCompatActivity() {
         // Aumenta o valor até 9
         if (numberValue < 9) {
             numberValue++
+            if(numberValue == 6 ||numberValue == 8){
+                numberValue++
+            }
             editText.setText(numberValue.toString())
         }
     }
@@ -224,8 +252,27 @@ class Criar_Per2 : AppCompatActivity() {
         // Diminui o valor até 0
         if (numberValue > 0) {
             numberValue--
+            if(numberValue == 8 || numberValue == 6){
+                numberValue--
+            }
             editText.setText(numberValue.toString())
         }
+    }
+
+    fun calc(Text:EditText) : Int{
+        var num = convertnumber(Text)
+        var total = 0
+        if(num == 7){
+            total = 14
+        }
+        else if(num == 9){
+            total = 15
+        }
+        else{
+            total = 8 + num
+        }
+
+        return total
     }
 
 

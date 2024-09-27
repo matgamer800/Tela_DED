@@ -78,13 +78,14 @@ class Habilidade {
 
     }
 
-    fun exibir(){
-        println("Força " + this.Forca)
+    fun exibir() : Array<Int>{
+        /*println("Força " + this.Forca)
         println("Destreza "+ this.Destreza)
         println("Cosntituição "+this.Constituicao)
         println("Inteligencia "+ this.Inteligencia)
         println("Sabedoria "+this.Sabedoria)
-        println("Carisma "+this.Carisma)
+        println("Carisma "+this.Carisma)*/
+        return arrayOf(this.Forca,this.Destreza,this.Constituicao,this.Inteligencia,this.Sabedoria,this.Carisma)
     }
 
     fun atualizarHabilidade(hab:Array<Int>){
@@ -106,8 +107,10 @@ class Habilidade {
     fun Calcvida(vida:Int) : Int{
 
         var pont:Int = 0
-        var pontos:Int = 0
+        /*
+            Pode Ser usada para definir os dados Futuramente
 
+        var pontos:Int = 0
         for (i in 1 .. 6) {
 
             when (i) {
@@ -145,7 +148,7 @@ class Habilidade {
                 6 -> this.Carisma = pont
             }
 
-        }
+        }*/
 
         pont = 0
         when(this.Constituicao){
