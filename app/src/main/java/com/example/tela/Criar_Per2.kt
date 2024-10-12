@@ -14,7 +14,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.TextView
 
-
 class Criar_Per2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -120,8 +119,6 @@ class Criar_Per2 : AppCompatActivity() {
                             (sabed.text.toString().toIntOrNull() ?: 0) +
                             (carisma.text.toString().toIntOrNull() ?: 0)
 
-
-
                     // Se a soma total dos pontos ultrapassar o limite, impede nova edição
                     if (totalPoints > maxPoints) {
                         editText.error = "Limite de 27 pontos atingido"
@@ -165,10 +162,6 @@ class Criar_Per2 : AppCompatActivity() {
         addTextWatcher(sabed)
         addTextWatcher(carisma)
 
-
-
-
-
         val volta = findViewById<Button>(R.id.id_voltar)
 
         Finalizar.setOnClickListener{
@@ -189,7 +182,6 @@ class Criar_Per2 : AppCompatActivity() {
             intent.putExtra("carisma",carismaN)
             intent.putExtra("raca",Raca)
             intent.putExtra("nome",Nome)
-
 
             startActivity(intent)
         }
@@ -274,7 +266,4 @@ class Criar_Per2 : AppCompatActivity() {
 
         return total
     }
-
-
-
 }
