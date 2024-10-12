@@ -49,7 +49,6 @@ class Perfil_Persona : AppCompatActivity() {
         val habilidade = Player.returnHabil()
         val vida = Player.returnVida()
 
-
         nomePer.setText(Nome)
         racaPer.setText(raca)
         classePer.setText("Barbaro")
@@ -60,14 +59,6 @@ class Perfil_Persona : AppCompatActivity() {
         inteligenciaPer.setText(habilidade[3].toString())
         sabedoriaPer.setText(habilidade[4].toString())
         carismaPer.setText(habilidade[5].toString())
-
-
-
-
-
-
-
-
 
     }
 
