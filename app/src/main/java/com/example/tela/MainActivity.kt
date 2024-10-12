@@ -16,8 +16,5 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,Criar_Per1::class.java)
             startActivity(intent)
         }
-
-
-
     }
 }
