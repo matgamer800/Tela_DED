@@ -10,4 +10,8 @@ class Elfo_Floresta : Racas {
         return arrayOf(0, 0, 0, 0, 1, 0)
 
     }
+
+    override fun AtributosAdd(): String {
+        return "Sabedoria: +1"
+    }
 }

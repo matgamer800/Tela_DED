@@ -10,4 +10,8 @@ class Draconato : Racas{
         return arrayOf(2,0,0,0,0,1)
 
     }
+
+    override fun AtributosAdd(): String {
+        return "Força: +2 Carisma: +1"
+    }
 }

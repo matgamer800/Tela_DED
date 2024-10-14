@@ -10,4 +10,8 @@ class Elfo : Racas{
         return arrayOf(0,2,0,0,0,0)
     }
 
+    override fun AtributosAdd(): String {
+        return "Destreza: +2"
+    }
+
 }

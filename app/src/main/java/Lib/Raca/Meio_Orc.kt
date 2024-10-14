@@ -10,4 +10,7 @@ class Meio_Orc : Racas {
         return arrayOf(2,0,1,0,0,0)
     }
 
+    override fun AtributosAdd(): String {
+        return "Força: +2 Constituição: +1"
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.tela
 
+import Lib.Raca.PreviewRaca
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 
 
@@ -24,6 +26,20 @@ class Criar_Per1 : AppCompatActivity() {
 
         val Nome = findViewById<EditText>(R.id.id_NomePer)
 
+        val atributos = findViewById<TextView>(R.id.atributos)
+
+        spiner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: android.view.View?, position: Int, id: Long) {
+                val raca = parent.getItemAtPosition(position).toString()
+                val previews = PreviewRaca()
+                val atributosResult = previews.returnAtributos(raca)
+                atributos.text = atributosResult // Atualiza o TextView com os atributos
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                atributos.text = "Selecione uma raça"
+            }
+        }
 
         butoNext.setOnClickListener{
             //val selectedPosition = spiner.selectedItemPosition

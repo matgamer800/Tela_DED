@@ -9,4 +9,8 @@ class Drow : Racas {
         //1-Forca 2-Destreza 3-Constituicao 4-Inteligencia 5-Sabedoria 6- Carisma
         return arrayOf(0,0,0,0,0,1)
     }
+
+    override fun AtributosAdd(): String {
+        return "Carisma: +1"
+    }
 }
