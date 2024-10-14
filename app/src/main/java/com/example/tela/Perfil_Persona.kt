@@ -9,6 +9,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.ImageView
 
 class Perfil_Persona : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +50,10 @@ class Perfil_Persona : AppCompatActivity() {
         val habilidade = Player.returnHabil()
         val vida = Player.returnVida()
 
+        val imgraca = findViewById<ImageView>(R.id.id_racaImagem)
+
+        definirImagemPorRaca(raca,imgraca,this)
+
         nomePer.setText(Nome)
         racaPer.setText(raca)
         classePer.setText("Barbaro")
@@ -60,6 +65,14 @@ class Perfil_Persona : AppCompatActivity() {
         sabedoriaPer.setText(habilidade[4].toString())
         carismaPer.setText(habilidade[5].toString())
 
+    }
+
+    fun definirImagemPorRaca(raca: String, imageView: ImageView, activity: AppCompatActivity) {
+        when (raca.toLowerCase()) {
+            "humano" -> imageView.setImageResource(activity.resources.getIdentifier("humano", "drawable", activity.packageName))
+            "elfo" -> imageView.setImageResource(activity.resources.getIdentifier("elfo", "drawable", activity.packageName))
+            else -> imageView.setImageResource(activity.resources.getIdentifier("padrao", "drawable", activity.packageName)) // Caso seja uma raça não identificada, usar uma imagem padrão
+        }
     }
 
 }

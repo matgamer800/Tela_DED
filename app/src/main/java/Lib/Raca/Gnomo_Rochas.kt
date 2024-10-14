@@ -10,4 +10,8 @@ class Gnomo_Rochas : Racas {
         return arrayOf(0, 0, 1, 0, 0, 0)
 
     }
+
+    override fun AtributosAdd(): String {
+        return "Constituição: +1"
+    }
 }

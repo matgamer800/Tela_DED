@@ -10,4 +10,7 @@ class Tiefling :Racas {
         return arrayOf(0,0,0,1,0,2)
     }
 
+    override fun AtributosAdd(): String {
+        return "Inteligência: +1 Carisma: +2"
+    }
 }

@@ -22,4 +22,5 @@
         <item>Tieflings</item>
 
     </string-array>
+    <string name="title_activity_data_base">DataBase</string>
 </resources>
