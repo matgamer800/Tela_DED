@@ -54,7 +54,6 @@ class Perfil_Persona : AppCompatActivity() {
 
         definirImagemPorRaca(raca,imgraca,this)
 
-
         nomePer.setText(Nome)
         racaPer.setText(raca)
         classePer.setText("Barbaro")
