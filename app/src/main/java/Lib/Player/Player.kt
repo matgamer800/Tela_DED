@@ -3,7 +3,6 @@ package Lib.Player
 import Lib.Classes.Classes
 import Lib.Raca.*
 
-
 class Player {
     val Nome: String
     val Raca:Racas
@@ -23,33 +22,7 @@ class Player {
         this.HabilidadePlayer = habilidade
         Vida = HabilidadePlayer.Calcvida(Vida)
     }
-    fun exibirplayer(){
-        println()
-        println("Nome: "+this.Nome)
-        println()
 
-        print("Raça: ")
-        this.Raca.definirRaca()
-        println()
-        println()
-        print("Classe: ")
-        this.Classe.definirClasse()
-        println()
-        println()
-        println("Habilidades:")
-        this.HabilidadePlayer.exibir()
-
-        println()
-        println("Pontos de Vida: "+this.Vida)
-        println()
-        println("Nivel: "+ this.Nivel)
-    }
-    /*
-        Apenas para ter a ideia:
-        Não deixar que realize o import na main
-        deve-se utilizar when para definir classes e racas
-        
-    */
     private fun acharRaca(nomeRaca:String) : Racas{
         var RacaDefinido : Racas = Humano()
 
@@ -73,7 +46,6 @@ class Player {
                 "Meio-Orc" -> {RacaDefinido = Meio_Orc()}
                 "Tieflings" -> {RacaDefinido = Tiefling()}
         }
-
         return RacaDefinido
     }
 
@@ -85,7 +57,4 @@ class Player {
     fun returnVida(): Int{
         return this.Vida
     }
-
-
-
 }

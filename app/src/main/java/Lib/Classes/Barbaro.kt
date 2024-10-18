@@ -1,7 +1,7 @@
 package Lib.Classes
 
 class Barbaro : Classes{
-    override fun definirClasse() {
-        print("Barbaro")
+    override fun definirClasse() : String {
+        return "Barbaro"
     }
 }
