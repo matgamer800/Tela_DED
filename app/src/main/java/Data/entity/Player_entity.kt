@@ -18,6 +18,12 @@ import androidx.room.PrimaryKey
             parentColumns = ["id"],
             childColumns = ["id_classe"],
             onDelete = ForeignKey.CASCADE
+        ),
+        ForeignKey(
+            entity = Raca_entity::class,
+            parentColumns = ["id"],
+            childColumns = ["id_raca"],
+            onDelete = ForeignKey.CASCADE
         )
         ])
 data class Player_entity(
@@ -29,7 +35,5 @@ data class Player_entity(
 
     val id_classe: Int, //Relacionado a Tabela de Classes
 
-
-
-
+    val id_raca: Int //Relacionando a Tabela de Raça
 )
