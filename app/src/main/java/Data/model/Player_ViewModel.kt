@@ -14,9 +14,16 @@ class Player_ViewModel(private val repository: Player_Repository) : ViewModel() 
 
     val players: LiveData<List<Player_entity>> get() = _players
 
-    fun insert(playerEntity: Player_entity) = viewModelScope.launch {
-        repository.insertPlayer(playerEntity)
+    fun create(playerEntity: Player_entity) = viewModelScope.launch {
+        repository.createPlayer(playerEntity)
     }
+    fun update(playerEntity: Player_entity) = viewModelScope.launch {
+        repository.updatePlayer(playerEntity)
+    }
+    fun getplayer(id:Long) = viewModelScope.launch {
+        repository.getPlayerByid(id)
+    }
+
 }
 
 class PlayerViewModelFactory(private val repository: Player_Repository) : ViewModelProvider.Factory{

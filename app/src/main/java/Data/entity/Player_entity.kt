@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey
             parentColumns = ["id"],
             childColumns = ["id_habil"],
             onDelete = ForeignKey.CASCADE
-        ),
+        )/*,
         ForeignKey(
             entity =Classes_entity::class,
             parentColumns = ["id"],
@@ -25,15 +25,15 @@ import androidx.room.PrimaryKey
             childColumns = ["id_raca"],
             onDelete = ForeignKey.CASCADE
         )
-        ])
+        */])
 data class Player_entity(
     @PrimaryKey(autoGenerate = true)
-    val id_player : Int = 0,
+    val id_player : Long = 0,
     val nome_player: String,
 
-    val id_habil: Int, // Relacionado a Tabela de habilidade
+    val id_habil: Long, // Relacionado a Tabela de habilidade
 
-    val id_classe: Int, //Relacionado a Tabela de Classes
+    //val id_classe: Int, //Relacionado a Tabela de Classes
 
-    val id_raca: Int //Relacionando a Tabela de Raça
+    //val id_raca: Int //Relacionando a Tabela de Raça
 )

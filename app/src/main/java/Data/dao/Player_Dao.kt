@@ -26,5 +26,5 @@ interface Player_Dao {
     fun getAllPlayer(): LiveData<List<Player_entity>>
 
     @Query("SELECT * FROM player WHERE id_player = :id")
-    suspend fun getPlayerById(id:Int): Player_entity?
+    suspend fun getPlayerById(id:Long): Player_entity?
 }

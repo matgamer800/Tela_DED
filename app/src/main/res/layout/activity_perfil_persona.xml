@@ -400,17 +400,24 @@
           android:layout_height="match_parent"
           android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/on_back"
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:layout_weight="1"
+            android:text="Voltar" />
+
         <Space
-            android:layout_width="200dp"
+            android:layout_width="88dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/Id_criar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="61dp"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="Criar Personagem" />
       </LinearLayout>
     </LinearLayout>
 

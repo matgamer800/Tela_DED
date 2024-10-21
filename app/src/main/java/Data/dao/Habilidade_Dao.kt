@@ -10,11 +10,11 @@ import androidx.room.Update
 @Dao
 interface Habilidade_Dao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertHalidade(habilidadeEntity: Habilidade_entity)
+    suspend fun insertHalidade(habilidadeEntity: Habilidade_entity): Long
 
     @Update
     suspend fun updateHabilidade(habilidadeEntity: Habilidade_entity)
 
     @Query("SELECT * FROM habilidade_player WHERE id = :id")
-    suspend fun getHabilidadeById(id:Int): Habilidade_entity?
+    suspend fun getHabilidadeById(id:Long): Habilidade_entity?
 }

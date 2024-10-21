@@ -1,11 +1,12 @@
 package Data.repository
 
+import Data.dao.Habilidade_Dao
 import Data.dao.Player_Dao
 import Data.entity.Player_entity
 import androidx.lifecycle.LiveData
 
-class Player_Repository(private val playerDao: Player_Dao ) {
-    suspend fun insertPlayer(player:Player_entity){
+class Player_Repository(private val playerDao: Player_Dao, private val habilidadeDao: Habilidade_Dao) {
+    suspend fun createPlayer(player: Player_entity){
         playerDao.insertPlayer(player)
     }
 
@@ -21,7 +22,7 @@ class Player_Repository(private val playerDao: Player_Dao ) {
         return playerDao.getAllPlayer()
     }
 
-    suspend fun getPlayerByid(id:Int){
-        playerDao.getPlayerById(id)
+    suspend fun getPlayerByid(id:Long) : Player_entity?{
+         return playerDao.getPlayerById(id)
     }
 }

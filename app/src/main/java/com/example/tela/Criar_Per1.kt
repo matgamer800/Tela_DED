@@ -1,5 +1,7 @@
 package com.example.tela
 
+import Data.model.PlayerViewModelFactory
+import Data.model.Player_ViewModel
 import Lib.Raca.PreviewRaca
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,10 +13,10 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 
 
 class Criar_Per1 : AppCompatActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
