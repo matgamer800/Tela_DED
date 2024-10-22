@@ -3,19 +3,16 @@ package com.example.tela
 import Data.data.AppDatabase
 import Data.entity.Habilidade_entity
 import Data.entity.Player_entity
-import Data.model.PlayerViewModelFactory
 import Data.model.Player_ViewModel
-import Data.repository.Habilidade_Repesitory
 import Lib.Classes.Barbaro
 import Lib.Player.Habilidade
 import Lib.Player.Player
-import ViewModel.HabilidadeViewModelFactory
-import ViewModel.Habilidade_ViewModel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -25,11 +22,12 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class Perfil_Persona : AppCompatActivity() {
-    private lateinit var player_ViewModel:Player_ViewModel
-    private lateinit var habilidadeViewModel:Habilidade_ViewModel
+    private val playerViewModel: Player_ViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +48,7 @@ class Perfil_Persona : AppCompatActivity() {
         val inteligencia = intent.getIntExtra("inteligencia",0)
         val sabedoria = intent.getIntExtra("sabedoria",0)
         val carisma = intent.getIntExtra("carisma",0)
+
 
         val habil = Habilidade(forca,destrezas,constituicao,inteligencia,sabedoria,carisma)
 
@@ -86,31 +85,28 @@ class Perfil_Persona : AppCompatActivity() {
         sabedoriaPer.setText(habilidade[4].toString())
         carismaPer.setText(habilidade[5].toString())
 
+        val forcaHabil = habilidade[0]
+        val destrezahabil = habilidade[1]
+        val contituicaohabil = habilidade[2]
+        val inteligenciahabil = habilidade[3]
+        val sabedoriahabil = habilidade[4]
+        val carismahabil = habilidade[5]
+
         val nextPage = findViewById<Button>(R.id.Id_criar)
 
         nextPage.setOnClickListener{
 
-            habilidadeViewModel.habilidadeId.observe(this, Observer { id ->
-                if (id != null) {
-                    val player = Player_entity(nome_player = Nome, id_habil = id)
-
-                    // Insere o Player usando o PlayerViewModel
-                    player_ViewModel.create(player)
+            CoroutineScope(Dispatchers.IO).launch {
+                val habilidadeid = playerViewModel.insertHabilidade(Habilidade_entity(forca = forcaHabil, destreza = destrezahabil, constituicao = contituicaohabil, inteligencia = inteligenciahabil, sabedoria = sabedoriahabil, carisma = carismahabil))
+                Log.d("DatabaseDebug", "ID da Habilidade inserida: $habilidadeid")
+                if(habilidadeid>=0){
+                    playerViewModel.insertPlayer(Player_entity(nome_player = Nome, id_habil = habilidadeid))
                 }
-            })
+                else{
+                    Log.e("DatabaseError", "Falha ao inserir habilidade")
+                }
+            }
 
-            // Exemplo de como criar e inserir uma nova habilidade
-            val habilidade = Habilidade_entity(forca = forca, destreza = destrezas, constituicao = constituicao, inteligencia = inteligencia, sabedoria = sabedoria, carisma = carisma)
-
-            // Insere a habilidade e aguarda o retorno do ID
-            habilidadeViewModel.insertHabilidade(habilidade)
-        }
-
-            //val habilidade = Habilidade_entity(forca = forca, destreza = destrezas, constituicao = constituicao, inteligencia = inteligencia, sabedoria = sabedoria, carisma = carisma)
-            //val player = Player_entity(nome_player = Nome, id_habil = 0)
-
-            //player_ViewModel.create(player)
-            //Quando criar o personagem
             val intent = Intent(this,LoadPlayer::class.java)
             startActivity(intent)
         }
@@ -121,10 +117,31 @@ class Perfil_Persona : AppCompatActivity() {
     //Ver o que dá para fazer
     fun definirImagemPorRaca(raca: String, imageView: ImageView, activity: AppCompatActivity) {
         when (raca.toLowerCase()) {
-            "humano" -> imageView.setImageResource(activity.resources.getIdentifier("humano", "drawable", activity.packageName))
-            "elfo" -> imageView.setImageResource(activity.resources.getIdentifier("elfo", "drawable", activity.packageName))
-            else -> imageView.setImageResource(activity.resources.getIdentifier("padrao", "drawable", activity.packageName)) // Caso seja uma raça não identificada, usar uma imagem padrão
+            "humano" -> imageView.setImageResource(
+                activity.resources.getIdentifier(
+                    "humano",
+                    "drawable",
+                    activity.packageName
+                )
+            )
+
+            "elfo" -> imageView.setImageResource(
+                activity.resources.getIdentifier(
+                    "elfo",
+                    "drawable",
+                    activity.packageName
+                )
+            )
+
+            else -> imageView.setImageResource(
+                activity.resources.getIdentifier(
+                    "padrao",
+                    "drawable",
+                    activity.packageName
+                )
+            ) // Caso seja uma raça não identificada, usar uma imagem padrão
         }
     }
+}
 
 

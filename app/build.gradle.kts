@@ -8,6 +8,9 @@ android {
     namespace = "com.example.tela"
     compileSdk = 34
 
+    viewBinding{
+        enable = true
+    }
     defaultConfig {
         applicationId = "com.example.tela"
         minSdk = 24

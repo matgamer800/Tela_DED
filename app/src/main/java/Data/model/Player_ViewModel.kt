@@ -1,37 +1,34 @@
 package Data.model
 
+import Data.dao.PlayerWithHabilidade
+import Data.data.AppDatabase
+import Data.entity.Habilidade_entity
 import Data.entity.Player_entity
-import Data.repository.Player_Repository
+import Lib.Player.Player
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
-class Player_ViewModel(private val repository: Player_Repository) : ViewModel() {
+class Player_ViewModel(application: Application): AndroidViewModel(application) {
+    private val playerDao = AppDatabase.getDatabase(application).playerDao()
+    private val habilidadeDao = AppDatabase.getDatabase(application).habilidadeDao()
 
-    private val _players: LiveData<List<Player_entity>> = repository.getAllPlayers()
+    val playerWithHabilidade: LiveData<List<PlayerWithHabilidade>> = playerDao.getPlayerWithHabilidade()
 
-    val players: LiveData<List<Player_entity>> get() = _players
-
-    fun create(playerEntity: Player_entity) = viewModelScope.launch {
-        repository.createPlayer(playerEntity)
-    }
-    fun update(playerEntity: Player_entity) = viewModelScope.launch {
-        repository.updatePlayer(playerEntity)
-    }
-    fun getplayer(id:Long) = viewModelScope.launch {
-        repository.getPlayerByid(id)
-    }
-
-}
-
-class PlayerViewModelFactory(private val repository: Player_Repository) : ViewModelProvider.Factory{
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(Player_ViewModel::class.java)){
-            @Suppress("UNCHECKED_CAST")
-            return Player_ViewModel(repository) as T
+    fun insertHabilidade(habilidadeEntity: Habilidade_entity):Long{
+        var id: Long = 1
+        viewModelScope.launch {
+            id = habilidadeDao.insertHalidade(habilidadeEntity)
         }
-        throw IllegalArgumentException("Unknown ViewModel class")
+        return id
     }
+
+    fun insertPlayer(player: Player_entity) {
+        viewModelScope.launch {
+            playerDao.insertPlayer(player)
+        }
+    }
+
 }

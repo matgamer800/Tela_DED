@@ -1,19 +1,17 @@
 package com.example.tela
 
-import Data.model.PlayerViewModelFactory
-import Data.model.Player_ViewModel
+
 import Lib.Raca.PreviewRaca
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+
 import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.viewModels
+
 
 
 class Criar_Per1 : AppCompatActivity() {

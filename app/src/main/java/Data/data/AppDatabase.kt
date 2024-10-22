@@ -9,7 +9,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Player_entity::class, Habilidade_entity::class], version = 2)
+@Database(entities = [Player_entity::class, Habilidade_entity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun playerDao(): Player_Dao
     abstract fun habilidadeDao(): Habilidade_Dao

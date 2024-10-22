@@ -1,8 +1,4 @@
 package com.example.tela
-
-import Data.model.PlayerViewModelFactory
-import Data.model.Player_ViewModel
-import Lib.Classes.Barbaro
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,12 +6,9 @@ import android.text.InputFilter
 import android.text.InputType
 import android.widget.Button
 import android.widget.EditText
-import Lib.Player.Player
-import Lib.Player.Habilidade
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.TextView
-import androidx.activity.viewModels
 
 class Criar_Per2 : AppCompatActivity() {
 
