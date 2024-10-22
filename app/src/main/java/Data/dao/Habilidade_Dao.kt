@@ -14,4 +14,7 @@ interface Habilidade_Dao {
 
     @Query("SELECT * FROM habilidade WHERE id = :id")
     suspend fun getHabilidadeById(id:Int): Habilidade_entity?
+
+    @Query("SELECT id FROM habilidade")
+    suspend fun getAll(): List<Int>
 }

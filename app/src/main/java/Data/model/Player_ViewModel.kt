@@ -20,6 +20,13 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
     fun insertHabilidade(habilidadeEntity: Habilidade_entity):Long{
         var id: Long = 1
         viewModelScope.launch {
+            val lists = habilidadeDao.getAll()
+
+            for (i in lists){
+                i
+            }
+
+
             id = habilidadeDao.insertHalidade(habilidadeEntity)
         }
         return id
