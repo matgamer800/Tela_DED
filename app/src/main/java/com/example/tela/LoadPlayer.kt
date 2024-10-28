@@ -3,7 +3,9 @@ package com.example.tela
 
 import Data.model.Player_ViewModel
 import PlayerAdapter
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +22,8 @@ class LoadPlayer : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_load_player)
 
+        val newPlay_button = findViewById<Button>(R.id.id_newPlayer)
+
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -31,6 +35,13 @@ class LoadPlayer : AppCompatActivity() {
                 adapter.submitList(it)
             }
         })
+
+        newPlay_button.setOnClickListener{
+            val intent = Intent(this,Criar_Per1::class.java)
+            startActivity(intent)
+        }
+
+
 
     }
 }
