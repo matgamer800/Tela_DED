@@ -39,6 +39,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.11"
@@ -52,7 +53,8 @@ android {
 
 dependencies {
     implementation("androidx.activity:activity:1.9.2")
-
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.8.3")
 
 
     val room_version = "2.6.0"

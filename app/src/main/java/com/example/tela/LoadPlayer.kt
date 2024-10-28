@@ -30,8 +30,8 @@ class LoadPlayer : AppCompatActivity() {
         val adapter = PlayerAdapter(
             onEditClick = { playerWithHabilidade ->
                 // Código para abrir a activity de edição
-                //val intent = Intent(this, EditarNomeActivity::class.java)
-                intent.putExtra("player_id", playerWithHabilidade.player.id_player)
+                val intent = Intent(this, editName::class.java)
+                intent.putExtra("player_id", playerWithHabilidade.player.id_player.toString())
                 startActivity(intent)
             },
             onDeleteClick = { playerWithHabilidade ->

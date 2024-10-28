@@ -48,7 +48,6 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
         }
     }
 
-
     suspend fun Verific() : Boolean{
         val player = playerDao.getAllPlayer()
         var target: Boolean
@@ -61,6 +60,16 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
         }
         print(target)
         return target
+    }
+
+    fun updateName(id: Int, name: String){
+        viewModelScope.launch {
+            val player = playerDao.returPlayer(id)
+
+            val playerUpdate = player.copy(nome_player = name)
+
+            playerDao.updatePlayer(playerUpdate)
+        }
     }
 
 }
