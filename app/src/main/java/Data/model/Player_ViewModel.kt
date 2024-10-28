@@ -19,23 +19,47 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
 
     fun insertHabilidade(habilidadeEntity: Habilidade_entity):Long{
         var id: Long = 1
+        var conts:Int = 0
         viewModelScope.launch {
+
             val lists = habilidadeDao.getAll()
-
+            print(lists)
             for (i in lists){
-                i
+                conts = i
             }
-
-
-            id = habilidadeDao.insertHalidade(habilidadeEntity)
+            print(conts)
+            habilidadeDao.insertHalidade(habilidadeEntity)
         }
+        print(conts)
         return id
     }
 
     fun insertPlayer(player: Player_entity) {
         viewModelScope.launch {
-            playerDao.insertPlayer(player)
+            var conts:Int = 0
+            val lists = habilidadeDao.getAll()
+            print(lists)
+            for (i in lists){
+                conts = i
+            }
+            val newplayer = player.copy(id_habil = conts.toLong())
+            print(newplayer)
+            playerDao.insertPlayer(newplayer)
         }
+    }
+
+    suspend fun Verific() : Boolean{
+        val player = playerDao.getAllPlayer()
+        var target: Boolean
+        print(player)
+        if(player.size == 0){
+            target = false
+        }
+        else{
+            target = true
+        }
+        print(target)
+        return target
     }
 
 }

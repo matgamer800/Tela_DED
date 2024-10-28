@@ -10,21 +10,29 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
         <LinearLayout
-                android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="216dp"
+            android:orientation="vertical">
+
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="424dp">
-            <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="62dp"/>
+                android:layout_height="62dp" />
+
             <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/textView"
-                    android:text="Dungeons &amp; Dragons" android:textSize="50sp" android:textAlignment="center"
-                    android:textStyle="bold|italic" android:fontFamily="@font/alkatra"/>
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alkatra"
+                android:text="Dungeons &amp; Dragons"
+                android:textAlignment="center"
+                android:textSize="50sp"
+                android:textStyle="bold|italic" />
+
             <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -40,11 +48,18 @@
                 <Space
                         android:layout_width="80dp"
                         android:layout_height="110dp" android:layout_weight="1"/>
+
                 <Button
-                        android:text="Criar personagem"
-                        android:layout_width="296dp"
-                        android:layout_height="106dp" android:layout_weight="1" android:id="@+id/id_criar1"
-                        android:textSize="34sp"/>
+                    android:id="@+id/id_criar1"
+                    android:layout_width="296dp"
+                    android:layout_height="106dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/tenor_sans"
+                    android:text="Inicar Aventura"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textSize="34sp"
+                    android:textStyle="bold|italic"
+                    android:typeface="sans" />
                 <Space
                         android:layout_width="85dp"
                         android:layout_height="110dp" android:layout_weight="1"/>
