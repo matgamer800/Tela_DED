@@ -22,6 +22,9 @@ interface Player_Dao {
     @Query("SELECT * FROM player")
     suspend fun getAllPlayer(): List<Player_entity>
 
+    @Delete
+    suspend fun deletePlayer(player: Player_entity)
+
     @Transaction
     @Query("SELECT * FROM player")
     fun getPlayerWithHabilidade(): LiveData<List<PlayerWithHabilidade>>

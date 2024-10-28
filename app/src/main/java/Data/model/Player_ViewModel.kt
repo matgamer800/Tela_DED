@@ -19,18 +19,12 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
 
     fun insertHabilidade(habilidadeEntity: Habilidade_entity):Long{
         var id: Long = 1
-        var conts:Int = 0
+
         viewModelScope.launch {
 
-            val lists = habilidadeDao.getAll()
-            print(lists)
-            for (i in lists){
-                conts = i
-            }
-            print(conts)
             habilidadeDao.insertHalidade(habilidadeEntity)
         }
-        print(conts)
+
         return id
     }
 
@@ -38,15 +32,22 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
         viewModelScope.launch {
             var conts:Int = 0
             val lists = habilidadeDao.getAll()
-            print(lists)
-            for (i in lists){
-                conts = i
-            }
+                for (i in lists){
+                    conts = i
+                }
             val newplayer = player.copy(id_habil = conts.toLong())
             print(newplayer)
             playerDao.insertPlayer(newplayer)
         }
     }
+
+    fun deletePlayer(player: Player_entity, habilidade: Habilidade_entity){
+        viewModelScope.launch {
+            playerDao.deletePlayer(player)
+            habilidadeDao.deleteHabilidade(habilidade)
+        }
+    }
+
 
     suspend fun Verific() : Boolean{
         val player = playerDao.getAllPlayer()

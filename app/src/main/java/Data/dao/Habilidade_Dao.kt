@@ -2,6 +2,7 @@ package Data.dao
 
 import Data.entity.Habilidade_entity
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -17,4 +18,7 @@ interface Habilidade_Dao {
 
     @Query("SELECT id FROM habilidade")
     suspend fun getAll(): List<Int>
+
+    @Delete
+    suspend fun deleteHabilidade(habilidadeEntity: Habilidade_entity)
 }
