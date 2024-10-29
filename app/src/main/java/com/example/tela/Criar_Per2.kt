@@ -19,6 +19,7 @@ class Criar_Per2 : AppCompatActivity() {
         //Usado para resgatar o valor da activity anterior
         val Nome = intent.getStringExtra("NomePer")
         val Raca = intent.getStringExtra("RacaPer")
+        val Classe = intent.getStringExtra("ClassePer")
 
         //Edit Text dos atributos
         val forca = findViewById<EditText>(R.id.id_forcas)
@@ -179,6 +180,7 @@ class Criar_Per2 : AppCompatActivity() {
             intent.putExtra("carisma",carismaN)
             intent.putExtra("raca",Raca)
             intent.putExtra("nome",Nome)
+            intent.putExtra("Classe",Classe)
 
             startActivity(intent)
         }
@@ -250,7 +252,7 @@ class Criar_Per2 : AppCompatActivity() {
 
     fun calc(Text:EditText) : Int{
         var num = convertnumber(Text)
-        var total = 0
+        var total: Int
         if(num == 7){
             total = 14
         }

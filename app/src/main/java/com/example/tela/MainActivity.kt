@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         val buttonCriar = findViewById<Button>(R.id.id_criar1)
         buttonCriar.setOnClickListener {
             CoroutineScope(Dispatchers.Main).launch {
+                playerViewModel.initCallBack()
                 val players = withContext(Dispatchers.IO) {
                     playerViewModel.Verific()
                 }

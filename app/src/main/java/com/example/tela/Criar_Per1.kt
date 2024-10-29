@@ -66,9 +66,11 @@ class Criar_Per1 : AppCompatActivity() {
             val intet = Intent(this,Criar_Per2::class.java)
             val raca = spiner.selectedItem.toString()
             val nomes = Nome.text.toString()
+            val classe = spinerClas.selectedItem.toString()
 
             intet.putExtra("NomePer",nomes)
             intet.putExtra("RacaPer",raca)
+            intet.putExtra("ClassePer",classe)
 
             startActivity(intet)
 

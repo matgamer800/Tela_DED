@@ -1,7 +1,9 @@
 package Data.model
 
 import Data.dao.PlayerWithHabilidade
+import Data.dao.Raca_Dao
 import Data.data.AppDatabase
+import Data.data.CallBacksPopulation
 import Data.entity.Habilidade_entity
 import Data.entity.Player_entity
 import Lib.Player.Player
@@ -14,6 +16,23 @@ import kotlinx.coroutines.launch
 class Player_ViewModel(application: Application): AndroidViewModel(application) {
     private val playerDao = AppDatabase.getDatabase(application).playerDao()
     private val habilidadeDao = AppDatabase.getDatabase(application).habilidadeDao()
+    private val RacaDao = AppDatabase.getDatabase(application).racaDao()
+
+
+
+    fun initCallBack(){
+        val callBacksPopulation = CallBacksPopulation()
+        viewModelScope.launch {
+            val n = RacaDao.returnId()
+            if (n.size == 0){
+                callBacksPopulation.popalatioRaca_Database(RacaDao)
+            }
+        }
+
+    }
+
+
+
 
     val playerWithHabilidade: LiveData<List<PlayerWithHabilidade>> = playerDao.getPlayerWithHabilidade()
 

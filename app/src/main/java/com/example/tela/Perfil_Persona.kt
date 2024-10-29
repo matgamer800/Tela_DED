@@ -25,6 +25,7 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 class Perfil_Persona : AppCompatActivity() {
     private val playerViewModel: Player_ViewModel by viewModels()
@@ -37,6 +38,7 @@ class Perfil_Persona : AppCompatActivity() {
 
         val Nome = intent.getStringExtra("nome").toString()
         val raca = intent.getStringExtra("raca").toString()
+        val classe = intent.getStringExtra("Classe").toString()
 
         //Habiblidade
 
@@ -76,7 +78,7 @@ class Perfil_Persona : AppCompatActivity() {
 
         nomePer.setText(Nome)
         racaPer.setText(raca)
-        classePer.setText("Barbaro")
+        classePer.setText(classe)
         vidaPer.setText(vida.toString())
         forcaPer.setText(habilidade[0].toString())
         destrezaPer.setText(habilidade[1].toString())
@@ -116,7 +118,7 @@ class Perfil_Persona : AppCompatActivity() {
 
     //Ver o que dá para fazer
     fun definirImagemPorRaca(raca: String, imageView: ImageView, activity: AppCompatActivity) {
-        when (raca.toLowerCase()) {
+        when (raca.toLowerCase(Locale.ROOT)) {
             "humano" -> imageView.setImageResource(
                 activity.resources.getIdentifier(
                     "humano",
