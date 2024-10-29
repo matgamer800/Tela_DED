@@ -22,6 +22,22 @@
         <item>Tieflings</item>
 
     </string-array>
+    <string-array name="activity_criar_per1_Classe">
+        <item>Artífice</item>
+        <item>Bárbaro</item>
+        <item>Bardo</item>
+        <item>Bruxo</item>
+        <item>Clérigo</item>
+        <item>Druida</item>
+        <item>Feiticeiro</item>
+        <item>Guardião</item>
+        <item>Guerreiro</item>
+        <item>Ladino</item>
+        <item>Mago</item>
+        <item>Monge</item>
+        <item>Paladino</item>
+    </string-array>
+
     <string name="title_activity_data_base">DataBase</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

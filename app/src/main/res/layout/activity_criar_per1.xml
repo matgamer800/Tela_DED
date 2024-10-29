@@ -97,17 +97,24 @@
             <Space
                     android:layout_width="42dp"
                     android:layout_height="48dp" android:layout_weight="1"/>
+
             <Spinner
-                    android:layout_width="265dp"
-                    android:layout_height="wrap_content" android:id="@+id/spinner3" android:minHeight="48dp"/>
+                android:id="@+id/id_pinner_classe"
+                android:layout_width="265dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/activity_criar_per1_Classe"
+                android:minHeight="48dp" />
             <Space
                     android:layout_width="52dp"
                     android:layout_height="48dp" android:layout_weight="1"/>
         </LinearLayout>
+
         <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView10" android:textStyle="italic"
-                android:textAlignment="center"/>
+            android:id="@+id/id_info_classe"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:textAlignment="center"
+            android:textStyle="italic" />
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
