@@ -1,6 +1,8 @@
 package Data.data
 
+import Data.dao.Classe_Dao
 import Data.dao.Raca_Dao
+import Data.entity.Classe_entity
 import Data.entity.Raca_entity
 
 class CallBacksPopulation{
@@ -27,6 +29,25 @@ class CallBacksPopulation{
             Raca_entity(id_raca = 18,Nome_raca = "Tieflings")
         )
         Racas_init.forEach { Raca.inserirRacas(it)}
+    }
+
+    suspend fun populationClasse_Darabase(Classe:Classe_Dao){
+        val Classe_init = listOf(
+            Classe_entity(id_classe = 1, Nome_classe = "Artífice"),
+            Classe_entity(id_classe = 2, Nome_classe = "Bárbaro"),
+            Classe_entity(id_classe = 3, Nome_classe = "Bardo"),
+            Classe_entity(id_classe = 4, Nome_classe = "Bruxo"),
+            Classe_entity(id_classe = 5, Nome_classe = "Clérigo"),
+            Classe_entity(id_classe = 6, Nome_classe = "Druida"),
+            Classe_entity(id_classe = 7, Nome_classe = "Feiticeiro"),
+            Classe_entity(id_classe = 8, Nome_classe = "Guardião"),
+            Classe_entity(id_classe = 9, Nome_classe = "Guerreiro"),
+            Classe_entity(id_classe = 10, Nome_classe = "Ladino"),
+            Classe_entity(id_classe = 11, Nome_classe = "Mago"),
+            Classe_entity(id_classe = 12, Nome_classe = "Monge"),
+            Classe_entity(id_classe = 13, Nome_classe = "Paladino")
+        )
+        Classe_init.forEach{ Classe.insertClasse(it)}
     }
 }
 

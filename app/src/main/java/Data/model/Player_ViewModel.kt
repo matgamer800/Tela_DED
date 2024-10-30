@@ -17,6 +17,7 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
     private val playerDao = AppDatabase.getDatabase(application).playerDao()
     private val habilidadeDao = AppDatabase.getDatabase(application).habilidadeDao()
     private val RacaDao = AppDatabase.getDatabase(application).racaDao()
+    private val classeDao = AppDatabase.getDatabase(application).classeDao()
 
     fun initCallBack(){
         val callBacksPopulation = CallBacksPopulation()
@@ -24,6 +25,10 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
             val n = RacaDao.returnId()
             if (n.size == 0){
                 callBacksPopulation.popalatioRaca_Database(RacaDao)
+            }
+            val m = classeDao.returnIdClasses()
+            if (m.size == 0){
+                callBacksPopulation.populationClasse_Darabase(classeDao)
             }
         }
     }
