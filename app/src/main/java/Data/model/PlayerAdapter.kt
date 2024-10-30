@@ -46,8 +46,9 @@ class PlayerAdapter(
                             str_sabed + playerWithHabilidade.habilidade.sabedoria.toString() + spaceT +
                             str_caris + playerWithHabilidade.habilidade.carisma.toString()
                     )
-            binding.RacaName.text = playerWithHabilidade.raca.Nome_raca
-            binding.ClasseName.text = playerWithHabilidade.classe.Nome_classe
+            binding.RacaName.text ="Raça :"+ playerWithHabilidade.raca.Nome_raca
+            binding.ClasseName.text ="Classe :"+ playerWithHabilidade.classe.Nome_classe
+            binding.QtdVida.text = "Vida :"+ playerWithHabilidade.player.vida.toString()
 
             // Atribui ações aos botões
             binding.idEdit.setOnClickListener() {

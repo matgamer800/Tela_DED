@@ -10,7 +10,6 @@
         android:id="@+id/playerName"
         android:layout_width="216dp"
         android:layout_height="23dp"
-        android:layout_marginStart="1dp"
         android:layout_marginTop="32dp"
         android:text="Player Name"
         android:textSize="18sp"
@@ -20,13 +19,13 @@
 
     <TextView
         android:id="@+id/RacaName"
-        android:layout_width="216dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="5dp"
+        android:layout_width="136dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Raca Player"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Qtd_vida"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/playerName" />
 
@@ -107,4 +106,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/RacaName" />
+
+    <TextView
+        android:id="@+id/Qtd_vida"
+        android:layout_width="83dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="6dp"
+        android:text="Vida"
+        android:textColor="#070707"
+        app:layout_constraintBottom_toTopOf="@+id/ClasseName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/RacaName"
+        app:layout_constraintTop_toBottomOf="@+id/playerName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

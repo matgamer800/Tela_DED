@@ -29,5 +29,6 @@ data class Player_entity(
     val nome_player: String,
     val id_habil: Long, // Relacionado a Tabela de habilidade
     val id_raca:Int,
-    val id_classe:Int
+    val id_classe:Int,
+    val vida:Int
 )
