@@ -5,6 +5,7 @@ import Data.entity.Habilidade_entity
 import Data.entity.Player_entity
 import Data.model.Player_ViewModel
 import Lib.Classes.Barbaro
+import Lib.FunAdd.Image
 import Lib.Player.Habilidade
 import Lib.Player.Player
 import android.content.Intent
@@ -34,7 +35,7 @@ class Perfil_Persona : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil_persona)
-
+        val img = Image()
 
         val Nome = intent.getStringExtra("nome").toString()
         val raca = intent.getStringExtra("raca").toString()
@@ -42,19 +43,19 @@ class Perfil_Persona : AppCompatActivity() {
 
         //Habiblidade
 
-        val forca = intent.getIntExtra("forca",0)
+        val forca = intent.getIntExtra("forca", 0)
 
-        val destrezas = intent.getIntExtra("destreza",0)
+        val destrezas = intent.getIntExtra("destreza", 0)
 
-        val constituicao = intent.getIntExtra("constituicao",0)
-        val inteligencia = intent.getIntExtra("inteligencia",0)
-        val sabedoria = intent.getIntExtra("sabedoria",0)
-        val carisma = intent.getIntExtra("carisma",0)
+        val constituicao = intent.getIntExtra("constituicao", 0)
+        val inteligencia = intent.getIntExtra("inteligencia", 0)
+        val sabedoria = intent.getIntExtra("sabedoria", 0)
+        val carisma = intent.getIntExtra("carisma", 0)
 
 
-        val habil = Habilidade(forca,destrezas,constituicao,inteligencia,sabedoria,carisma)
+        val habil = Habilidade(forca, destrezas, constituicao, inteligencia, sabedoria, carisma)
 
-        val Player = Player(Nome,habil,raca,Barbaro())
+        val Player = Player(Nome, habil, raca, Barbaro())
 
         val nomePer = findViewById<TextView>(R.id.id_nome_personagem)
         val racaPer = findViewById<TextView>(R.id.id_raca_personagem)
@@ -72,9 +73,11 @@ class Perfil_Persona : AppCompatActivity() {
         val habilidade = Player.returnHabil()
         val vida = Player.returnVida()
 
-        val imgraca = findViewById<ImageView>(R.id.id_racaImagem)
 
-        definirImagemPorRaca(raca,imgraca,this)
+        val imgraca = findViewById<ImageView>(R.id.id_racaImagem)
+        val image = img.getImageResource(raca)
+        imgraca.setImageResource(image)
+
 
         nomePer.setText(Nome)
         racaPer.setText(raca)
@@ -95,53 +98,43 @@ class Perfil_Persona : AppCompatActivity() {
         val carismahabil = habilidade[5]
 
         val nextPage = findViewById<Button>(R.id.Id_criar)
+        val backsPage = findViewById<Button>(R.id.on_back)
 
-        nextPage.setOnClickListener{
+        nextPage.setOnClickListener {
 
             CoroutineScope(Dispatchers.IO).launch {
-                val habilidadeid = playerViewModel.insertHabilidade(Habilidade_entity(forca = forcaHabil, destreza = destrezahabil, constituicao = contituicaohabil, inteligencia = inteligenciahabil, sabedoria = sabedoriahabil, carisma = carismahabil))
+                val habilidadeid = playerViewModel.insertHabilidade(
+                    Habilidade_entity(
+                        forca = forcaHabil,
+                        destreza = destrezahabil,
+                        constituicao = contituicaohabil,
+                        inteligencia = inteligenciahabil,
+                        sabedoria = sabedoriahabil,
+                        carisma = carismahabil
+                    )
+                )
                 Log.d("DatabaseDebug", "ID da Habilidade inserida: $habilidadeid")
-                if(habilidadeid>=0){
-                    playerViewModel.insertPlayer(Player_entity(nome_player = Nome, id_habil = habilidadeid, id_raca = 1, id_classe = 1, vida = vida),raca,classe)
-                }
-                else{
+                if (habilidadeid >= 0) {
+                    playerViewModel.insertPlayer(
+                        Player_entity(
+                            nome_player = Nome,
+                            id_habil = habilidadeid,
+                            id_raca = 1,
+                            id_classe = 1,
+                            vida = vida
+                        ), raca, classe
+                    )
+                } else {
                     Log.e("DatabaseError", "Falha ao inserir habilidade")
                 }
             }
 
-            val intent = Intent(this,LoadPlayer::class.java)
+            val intent = Intent(this, LoadPlayer::class.java)
             startActivity(intent)
         }
-
-
-    }
-
-    //Ver o que dá para fazer
-    fun definirImagemPorRaca(raca: String, imageView: ImageView, activity: AppCompatActivity) {
-        when (raca.toLowerCase(Locale.ROOT)) {
-            "humano" -> imageView.setImageResource(
-                activity.resources.getIdentifier(
-                    "humano",
-                    "drawable",
-                    activity.packageName
-                )
-            )
-
-            "elfo" -> imageView.setImageResource(
-                activity.resources.getIdentifier(
-                    "elfo",
-                    "drawable",
-                    activity.packageName
-                )
-            )
-
-            else -> imageView.setImageResource(
-                activity.resources.getIdentifier(
-                    "padrao",
-                    "drawable",
-                    activity.packageName
-                )
-            ) // Caso seja uma raça não identificada, usar uma imagem padrão
+        backsPage.setOnClickListener {
+            val intent = Intent(this, Criar_Per1::class.java)
+            startActivity(intent)
         }
     }
 }

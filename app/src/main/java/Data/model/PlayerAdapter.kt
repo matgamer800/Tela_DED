@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tela.R
 import com.example.tela.databinding.PlayerItemBinding
 
 
@@ -49,6 +50,8 @@ class PlayerAdapter(
             binding.RacaName.text ="Raça :"+ playerWithHabilidade.raca.Nome_raca
             binding.ClasseName.text ="Classe :"+ playerWithHabilidade.classe.Nome_classe
             binding.QtdVida.text = "Vida :"+ playerWithHabilidade.player.vida.toString()
+            val imageResource = getImageResource(playerWithHabilidade.raca.Nome_raca)
+            binding.imageView2.setImageResource(imageResource)
 
             // Atribui ações aos botões
             binding.idEdit.setOnClickListener() {
@@ -59,6 +62,12 @@ class PlayerAdapter(
             }
             binding.idStart.setOnClickListener() {
                 onRunClick(playerWithHabilidade)
+            }
+        }
+        fun getImageResource(characterType: String): Int {
+            return when (characterType) {
+                "Humano" -> R.drawable.humano
+                else -> R.drawable.esboco
             }
         }
     }
