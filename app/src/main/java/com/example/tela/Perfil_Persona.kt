@@ -102,7 +102,7 @@ class Perfil_Persona : AppCompatActivity() {
                 val habilidadeid = playerViewModel.insertHabilidade(Habilidade_entity(forca = forcaHabil, destreza = destrezahabil, constituicao = contituicaohabil, inteligencia = inteligenciahabil, sabedoria = sabedoriahabil, carisma = carismahabil))
                 Log.d("DatabaseDebug", "ID da Habilidade inserida: $habilidadeid")
                 if(habilidadeid>=0){
-                    playerViewModel.insertPlayer(Player_entity(nome_player = Nome, id_habil = habilidadeid, id_raca = 1),raca)
+                    playerViewModel.insertPlayer(Player_entity(nome_player = Nome, id_habil = habilidadeid, id_raca = 1, id_classe = 1),raca,classe)
                 }
                 else{
                     Log.e("DatabaseError", "Falha ao inserir habilidade")

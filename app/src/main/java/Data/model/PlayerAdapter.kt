@@ -47,6 +47,7 @@ class PlayerAdapter(
                             str_caris + playerWithHabilidade.habilidade.carisma.toString()
                     )
             binding.RacaName.text = playerWithHabilidade.raca.Nome_raca
+            binding.ClasseName.text = playerWithHabilidade.classe.Nome_classe
 
             // Atribui ações aos botões
             binding.idEdit.setOnClickListener() {

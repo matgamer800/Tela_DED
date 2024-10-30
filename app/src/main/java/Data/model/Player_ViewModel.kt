@@ -43,7 +43,7 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
         return id
     }
 
-    fun insertPlayer(player: Player_entity,raca:String) {
+    fun insertPlayer(player: Player_entity,raca:String,classe:String) {
         viewModelScope.launch {
             var conts:Int = 0
             val lists = habilidadeDao.getAll()
@@ -51,7 +51,8 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
                     conts = i
                 }
             val id_raca = RacaDao.atribuiRaca(raca)
-            val newplayer = player.copy(id_habil = conts.toLong(), id_raca = id_raca)
+            val id_classe = classeDao.atribuirClasse(classe)
+            val newplayer = player.copy(id_habil = conts.toLong(), id_raca = id_raca, id_classe = id_classe)
             print(newplayer)
             playerDao.insertPlayer(newplayer)
         }

@@ -1,5 +1,6 @@
 package Data.dao
 
+import Data.entity.Classe_entity
 import Data.entity.Habilidade_entity
 import Data.entity.Player_entity
 import Data.entity.Raca_entity
@@ -48,5 +49,11 @@ data class PlayerWithHabilidade(
         parentColumn = "id_raca",
         entityColumn = "id_raca"
     )
-    val raca: Raca_entity
+    val raca: Raca_entity,
+
+    @Relation(
+        parentColumn = "id_classe",
+        entityColumn = "id_classe"
+    )
+    val classe : Classe_entity
 )

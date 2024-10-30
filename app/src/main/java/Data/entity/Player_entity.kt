@@ -17,12 +17,17 @@ import androidx.room.PrimaryKey
             parentColumns = ["id_raca"],
             childColumns = ["id_raca"],
             onDelete = ForeignKey.CASCADE
+        ),
+        ForeignKey(
+            entity = Classe_entity::class,
+            parentColumns = ["id_classe"],
+            childColumns = ["id_classe"],
+            onDelete = ForeignKey.CASCADE
         )])
 data class Player_entity(
     @PrimaryKey(autoGenerate = true) val id_player : Int = 0,
     val nome_player: String,
-
     val id_habil: Long, // Relacionado a Tabela de habilidade
-
-    val id_raca:Int
+    val id_raca:Int,
+    val id_classe:Int
 )
