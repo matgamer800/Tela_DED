@@ -2,6 +2,7 @@ package Data.dao
 
 import Data.entity.Habilidade_entity
 import Data.entity.Player_entity
+import Data.entity.Raca_entity
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
@@ -41,5 +42,11 @@ data class PlayerWithHabilidade(
         parentColumn = "id_habil",
         entityColumn = "id"
     )
-    val habilidade: Habilidade_entity
+    val habilidade: Habilidade_entity,
+
+    @Relation(
+        parentColumn = "id_raca",
+        entityColumn = "id_raca"
+    )
+    val raca: Raca_entity
 )

@@ -12,4 +12,10 @@ interface Raca_Dao {
 
     @Query("SELECT id_raca FROM racas")
     suspend fun returnId(): List<Int>
+
+    @Query("SELECT id_raca FROM racas WHERE nome_raca = :raca")
+    suspend fun atribuiRaca(raca:String): Int
+
+    @Query("SELECT nome_raca FROM racas  WHERE id_raca = :id")
+    suspend fun returnNameRaca(id:Int): String
 }

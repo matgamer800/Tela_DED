@@ -1,7 +1,6 @@
 package Data.entity
 
-import Lib.Classes.Classes
-import Lib.Raca.Racas
+
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
@@ -12,6 +11,12 @@ import androidx.room.PrimaryKey
             parentColumns = ["id"],
             childColumns = ["id_habil"],
             onDelete = ForeignKey.CASCADE
+        ),
+        ForeignKey(
+            entity = Raca_entity::class,
+            parentColumns = ["id_raca"],
+            childColumns = ["id_raca"],
+            onDelete = ForeignKey.CASCADE
         )])
 data class Player_entity(
     @PrimaryKey(autoGenerate = true) val id_player : Int = 0,
@@ -19,4 +24,5 @@ data class Player_entity(
 
     val id_habil: Long, // Relacionado a Tabela de habilidade
 
+    val id_raca:Int
 )

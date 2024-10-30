@@ -1,4 +1,5 @@
 import Data.dao.PlayerWithHabilidade
+import Data.dao.Raca_Dao
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -45,6 +46,7 @@ class PlayerAdapter(
                             str_sabed + playerWithHabilidade.habilidade.sabedoria.toString() + spaceT +
                             str_caris + playerWithHabilidade.habilidade.carisma.toString()
                     )
+            binding.RacaName.text = playerWithHabilidade.raca.Nome_raca
 
             // Atribui ações aos botões
             binding.idEdit.setOnClickListener() {

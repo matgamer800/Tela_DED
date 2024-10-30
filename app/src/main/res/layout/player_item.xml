@@ -8,64 +8,75 @@
 
     <TextView
         android:id="@+id/playerName"
-        android:layout_width="220dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="216dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="32dp"
         android:text="Player Name"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/habilidadeDetails"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.008"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/habilidadeDetails"
-        android:layout_width="222dp"
-        android:layout_height="95dp"
-        android:layout_marginStart="8dp"
+        android:id="@+id/RacaName"
+        android:layout_width="216dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="17dp"
-        android:text="Habilidade details"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/id_delete"
+        android:text="Raca Player"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/playerName" />
 
+    <TextView
+        android:id="@+id/habilidadeDetails"
+        android:layout_width="216dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="47dp"
+        android:text="Habilidade details"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/ClasseName" />
+
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="155dp"
+        android:layout_height="171dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="7dp"
         app:layout_constraintBottom_toTopOf="@+id/id_edit"
+        app:layout_constraintEnd_toStartOf="@+id/playerName"
         app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/esboco" />
 
     <Button
         android:id="@+id/id_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="16dp"
         android:text="Editar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/id_delete"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/id_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="16dp"
         android:text="Deletar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/id_start"
@@ -74,15 +85,26 @@
 
     <Button
         android:id="@+id/id_start"
-        android:layout_width="wrap_content"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="106dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
         android:text="Start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/id_delete"
         app:layout_constraintTop_toBottomOf="@+id/habilidadeDetails" />
+
+    <TextView
+        android:id="@+id/ClasseName"
+        android:layout_width="216dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="7dp"
+        android:text="Classe Player"
+        android:textColor="#0F0C0C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/RacaName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

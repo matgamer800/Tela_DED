@@ -15,7 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Player_entity::class, Habilidade_entity::class,Raca_entity::class], version = 2)
+@Database(entities = [Player_entity::class, Habilidade_entity::class,Raca_entity::class], version = 3)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun playerDao(): Player_Dao
     abstract fun habilidadeDao(): Habilidade_Dao

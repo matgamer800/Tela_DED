@@ -18,8 +18,6 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
     private val habilidadeDao = AppDatabase.getDatabase(application).habilidadeDao()
     private val RacaDao = AppDatabase.getDatabase(application).racaDao()
 
-
-
     fun initCallBack(){
         val callBacksPopulation = CallBacksPopulation()
         viewModelScope.launch {
@@ -28,33 +26,27 @@ class Player_ViewModel(application: Application): AndroidViewModel(application) 
                 callBacksPopulation.popalatioRaca_Database(RacaDao)
             }
         }
-
     }
-
-
-
 
     val playerWithHabilidade: LiveData<List<PlayerWithHabilidade>> = playerDao.getPlayerWithHabilidade()
 
     fun insertHabilidade(habilidadeEntity: Habilidade_entity):Long{
         var id: Long = 1
-
         viewModelScope.launch {
-
             habilidadeDao.insertHalidade(habilidadeEntity)
         }
-
         return id
     }
 
-    fun insertPlayer(player: Player_entity) {
+    fun insertPlayer(player: Player_entity,raca:String) {
         viewModelScope.launch {
             var conts:Int = 0
             val lists = habilidadeDao.getAll()
                 for (i in lists){
                     conts = i
                 }
-            val newplayer = player.copy(id_habil = conts.toLong())
+            val id_raca = RacaDao.atribuiRaca(raca)
+            val newplayer = player.copy(id_habil = conts.toLong(), id_raca = id_raca)
             print(newplayer)
             playerDao.insertPlayer(newplayer)
         }
